@@ -20,7 +20,7 @@ func GetLocation(city string) (*GeoData, error) {
 
 	if city != "" {
 
-		isCity := !CheckCity(city)
+		isCity := CheckCity(city)
 
 		if !isCity {
 			panic("Такого города нет!")
@@ -79,6 +79,6 @@ func CheckCity(city string) bool {
 
 	json.Unmarshal(body, &isError)
 
-	return isError.Error
+	return !isError.Error
 
 }
