@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Проект погоды")
+
+	city := flag.String("city", "", "Город пользователя")
+
+	format := flag.Int("format", 1, "Формат вывода")
+
+	flag.Parse()
+
+	fmt.Println(*city)
+	fmt.Println(*format)
+
 }
